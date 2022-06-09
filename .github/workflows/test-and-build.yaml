@@ -41,10 +41,10 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Install dependencies
-        run: npm install
-      - name: Run build script
-        run: npm run build
+      - name: Install dependencies and run build script
+        run: |
+          npm install
+          npm run build
       - name: Check build result
         if: ${{ failure() }}
         run: echo "Error in build step"; exit 1
